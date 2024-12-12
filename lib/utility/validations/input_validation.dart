@@ -1,26 +1,31 @@
+import '../constants/message/validation.dart';
 import 'package:get/get.dart';
 
 class InputValidation {
   static String? email(String value) {
     if (value.isEmpty) {
-      return "email cannot be emapty";
+      return ValidationMessage.REQUIRED.trParams(
+        {"fieldName": "email"},
+      );
     }
     if (!GetUtils.isEmail(value)) {
-      return "Invalid format email";
+      return ValidationMessage.EMAIL.tr;
     }
     return null;
   }
 
   static String? requiredField(String value, String fieldName) {
     if (value.isEmpty) {
-      return "$fieldName cannot be emapty";
+      return ValidationMessage.REQUIRED.trParams(
+        {"fieldName": fieldName},
+      );
     }
     return null;
   }
 
   static String? dropdown(String value, String fieldName) {
     if (value.isEmpty) {
-      return "Please choose $fieldName";
+      return ValidationMessage.DROPDOWN.tr;
     }
     return null;
   }
@@ -34,7 +39,7 @@ class InputValidation {
     final RegExp phoneRegex = RegExp(r'^(?:\+62|62|0)[2-9][0-9]{7,11}$');
 
     if (!phoneRegex.hasMatch(cleanNumber)) {
-      return 'Invalid format phone';
+      return ValidationMessage.PHONE.tr;
     }
 
     return null; // Return null jika validasi berhasil

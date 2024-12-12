@@ -1,3 +1,5 @@
 part 'routes_name.dart';
 
-class RouteApp {}
+class RouteApp {
+  static const INITIAL = RoutesName.LOGIN;
+}

@@ -1,14 +1,18 @@
-import 'package:clean_arch/widgets/loading.dart';
-
-import 'themes/button.dart';
-import 'utility/constants/colors.dart';
-import 'utility/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'controllers/network_controller.dart';
+import 'themes/theme.dart';
+import 'utility/constants/colors.dart';
+import 'utility/constants/theme.dart';
+import 'utility/services/api_services.dart';
+import 'utility/translations/tr.dart';
+import 'widgets/loading.dart';
+
 void main() async {
   await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MainApp());
 }
 
@@ -18,31 +22,41 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          centerTitle: true,
-          iconTheme: IconThemeData(
-            color: AppColors.white,
-            size: FontSize.x2l,
-          ),
-          elevation: .25,
-          titleTextStyle: AppThemes.appFonts().titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: AppColors.text,
-              ),
-        ),
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-        ),
-        textTheme: AppThemes.appFonts(),
-        inputDecorationTheme: AppThemes.appInputDecoration(),
-        elevatedButtonTheme: AppButtonStyle.filled,
-        outlinedButtonTheme: AppButtonStyle.outlined,
-      ),
+      initialBinding: BindingsBuilder(() async {
+        await Get.putAsync(() => DioService().init(), permanent: true);
+        Get.put(NetworkController(), permanent: true);
+      }),
+      translations: AppTranslations(),
+      locale: getLocale(AppLocale.ID), // Default locale
+      fallbackLocale:
+          getLocale(AppLocale.EN), // Locale fallback jika locale tidak tersedia
+      theme: AppThemeData.theme,
       home: Scaffold(
         body: SafeArea(
-          child: AppLoading(
-            message: "Mohon tunggu...",
+          child: Column(
+            children: [
+              Obx(
+                () => Container(
+                  color: Get.find<NetworkController>().isConnected.isTrue
+                      ? AppColors.success
+                      : AppColors.error,
+                  padding: const EdgeInsets.all(8),
+                  child: Center(
+                    child: Text(
+                      "${Get.find<NetworkController>().isConnected.value}",
+                      style: Get.textTheme.bodyMedium!.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: AppLoading(
+                  message: "Cuma template saja",
+                ),
+              ),
+            ],
           ),
         ),
       ),

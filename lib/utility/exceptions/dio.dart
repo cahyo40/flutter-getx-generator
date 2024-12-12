@@ -1,5 +1,7 @@
 import 'dart:io';
+import '../constants/message/exception.dart';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 
 class DioExceptionHandler implements Exception {
   late String errorMessage;
@@ -7,16 +9,16 @@ class DioExceptionHandler implements Exception {
   DioExceptionHandler.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.cancel:
-        errorMessage = 'Permintaan ke server dibatalkan';
+        errorMessage = DioExceptionMessages.REQUEST_CANCELLED.tr;
         break;
       case DioExceptionType.connectionTimeout:
-        errorMessage = 'Koneksi timeout';
+        errorMessage = ExceptionMessage.CONNECTION_TIMEOUT.tr;
         break;
       case DioExceptionType.receiveTimeout:
-        errorMessage = 'Timeout menerima data';
+        errorMessage = DioExceptionMessages.RECEIVE_TIMEOUT.tr;
         break;
       case DioExceptionType.sendTimeout:
-        errorMessage = 'Timeout mengirim data';
+        errorMessage = DioExceptionMessages.SEND_TIMEOUT.tr;
         break;
       case DioExceptionType.badResponse:
         errorMessage = _handleError(
@@ -26,16 +28,16 @@ class DioExceptionHandler implements Exception {
         break;
       case DioExceptionType.unknown:
         if (dioException.error is SocketException) {
-          errorMessage = 'Tidak ada koneksi internet';
+          errorMessage = ExceptionMessage.CONNECTION_ERROR.tr;
           break;
         }
-        errorMessage = 'Terjadi kesalahan yang tidak diketahui';
+        errorMessage = DioExceptionMessages.UNKNOWN_ERROR.tr;
         break;
       case DioExceptionType.badCertificate:
-        errorMessage = 'Sertifikat SSL tidak valid';
+        errorMessage = DioExceptionMessages.SSL_INVALID.tr;
         break;
       case DioExceptionType.connectionError:
-        errorMessage = 'Gagal terhubung ke server';
+        errorMessage = ExceptionMessage.CONNECTION_ERROR.tr;
         break;
     }
   }
@@ -43,19 +45,19 @@ class DioExceptionHandler implements Exception {
   String _handleError(int? statusCode, dynamic error) {
     switch (statusCode) {
       case 400:
-        return 'Permintaan tidak valid';
+        return DioExceptionMessages.BAD_REQUEST.tr;
       case 401:
-        return 'Autentikasi gagal';
+        return DioExceptionMessages.UNAUTHORIZED.tr;
       case 403:
-        return 'Tidak memiliki akses';
+        return DioExceptionMessages.FORBIDDEN.tr;
       case 404:
-        return 'Data tidak ditemukan';
+        return DioExceptionMessages.NOT_FOUND.tr;
       case 500:
-        return 'Internal server error';
+        return DioExceptionMessages.SERVER_ERROR.tr;
       case 502:
-        return 'Bad gateway';
+        return DioExceptionMessages.BAD_GATEWAY.tr;
       default:
-        return 'Terjadi kesalahan';
+        return DioExceptionMessages.DEFAULT_ERROR.tr;
     }
   }
 

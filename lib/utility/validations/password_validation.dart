@@ -1,3 +1,6 @@
+import '../constants/message/validation.dart';
+import 'package:get/get.dart';
+
 class PasswordValidator {
   final int minLength;
   final bool requireNumbers;
@@ -13,19 +16,19 @@ class PasswordValidator {
 
   String? validate(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Password cannot be empty';
+      return ValidationMessage.REQUIRED.trParams({"fieldName": "password"});
     }
 
     // Minimum length validation
     if (value.length < minLength) {
-      return 'Password must be at least $minLength characters';
+      return ValidationMessage.PASSMIN.trParams({"char": minLength.toString()});
     }
 
     // Number validation
     if (requireNumbers) {
       final hasNumber = RegExp(r'[0-9]').hasMatch(value);
       if (!hasNumber) {
-        return 'Password must contain at least 1 number';
+        return ValidationMessage.PASSNUM.tr;
       }
     }
 
@@ -33,7 +36,7 @@ class PasswordValidator {
     if (requireSpecialChar) {
       final hasSpecialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value);
       if (!hasSpecialChar) {
-        return 'Password must contain at least 1 special character';
+        return ValidationMessage.PASSCHAR.tr;
       }
     }
 
@@ -41,7 +44,7 @@ class PasswordValidator {
     if (requireCapitalLetter) {
       final hasCapitalLetter = RegExp(r'[A-Z]').hasMatch(value);
       if (!hasCapitalLetter) {
-        return 'Password must contain at least 1 capital letter';
+        return ValidationMessage.PASSCAPITAL.tr;
       }
     }
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static Color primary = Colors.redAccent;
+  static Color primary = Colors.blueAccent;
   static Color accent = Colors.amberAccent;
   static Color background = Colors.white;
   static Color text = Colors.black87;
