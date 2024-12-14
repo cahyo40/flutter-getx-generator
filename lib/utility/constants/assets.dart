@@ -1,17 +1,7 @@
-abstract class AppAssets {
-  baseAssets(String assets);
+class ImageAssets {
+  // static String logo = AppConfig.imageAssets(image: "logo.png");
 }
 
-class ImageAssets implements AppAssets {
-  @override
-  baseAssets(String assets) {
-    return "assets/images/$assets";
-  }
-}
-
-class JsonAssets implements AppAssets {
-  @override
-  baseAssets(String assets) {
-    return "assets/json/$assets";
-  }
+class JsonAssets {
+  // static String data = AppConfig.imageAssets(image: "data.png");
 }

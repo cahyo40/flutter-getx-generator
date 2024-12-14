@@ -1,3 +1,4 @@
+import 'package:clean_arch/routers/routes_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -5,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'controllers/network_controller.dart';
 import 'themes/theme.dart';
 import 'utility/constants/colors.dart';
+import 'utility/constants/enum.dart';
 import 'utility/constants/theme.dart';
 import 'utility/services/api_services.dart';
 import 'utility/translations/tr.dart';
@@ -26,10 +28,10 @@ class MainApp extends StatelessWidget {
         await Get.putAsync(() => DioService().init(), permanent: true);
         Get.put(NetworkController(), permanent: true);
       }),
+      getPages: RouteApp.routes,
       translations: AppTranslations(),
-      locale: getLocale(AppLocale.ID), // Default locale
-      fallbackLocale:
-          getLocale(AppLocale.EN), // Locale fallback jika locale tidak tersedia
+      locale: AppThemes.getLocale(AppLocale.ID),
+      fallbackLocale: AppThemes.getLocale(AppLocale.EN),
       theme: AppThemeData.theme,
       home: Scaffold(
         body: SafeArea(

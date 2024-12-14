@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../app/config.dart';
 import '../../themes/textfield.dart';
+import 'enum.dart';
 
 class AppThemes {
   AppThemes._();
@@ -35,6 +36,15 @@ class AppThemes {
       return AppInputDecoration.outlined();
     }
   }
+
+  static getLocale(AppLocale locale) {
+    switch (locale) {
+      case AppLocale.ID:
+        return const Locale("id", "ID");
+      case AppLocale.EN:
+        return const Locale("en", "US");
+    }
+  }
 }
 
 class FontSize {
@@ -60,22 +70,3 @@ class AppSize {
   //// custom params [double]
   static double custom(double size) => size;
 }
-
-getLocale(AppLocale locale) {
-  switch (locale) {
-    case AppLocale.ID:
-      return const Locale("id", "ID");
-    case AppLocale.EN:
-      return const Locale("en", "US");
-  }
-}
-
-enum Fonts { JAKARTA_SANS, ROBOTO, FIGTREE, NUNITO }
-
-enum TextFieldType { OUTLINED, UNDERLINE }
-
-enum ButtonType { OUTLINE, FILL }
-
-enum ButtonColor { PRIMARY, INFO, WARNING, SUCCESS, ERROR }
-
-enum AppLocale { ID, EN }

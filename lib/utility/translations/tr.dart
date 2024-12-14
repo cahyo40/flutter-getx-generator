@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import 'en/en.dart';
-import 'id/id.dart';
+import 'lang/en.dart';
+import 'lang/id.dart';
 
 class AppTranslations extends Translations {
   @override
