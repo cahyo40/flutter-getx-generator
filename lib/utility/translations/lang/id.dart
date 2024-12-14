@@ -26,7 +26,7 @@ final Map<String, String> idID = {
   DioExceptionMessages.RECEIVE_TIMEOUT: "Timeout menerima data",
   DioExceptionMessages.SEND_TIMEOUT: "Timeout mengirim data",
   DioExceptionMessages.UNKNOWN_ERROR: "Terjadi kesalahan yang tidak diketahui",
-  DioExceptionMessages.BAD_REQUEST: "Permintaan tidak valid",
+  DioExceptionMessages.BAD_REQUEST: "Data tidak valid",
 
   DioExceptionMessages.UNAUTHORIZED: "Autentikasi gagal",
   DioExceptionMessages.FORBIDDEN: "Tidak memiliki akses",

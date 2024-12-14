@@ -14,6 +14,7 @@ class AppDialogLoading {
         insetPadding: const EdgeInsets.symmetric(horizontal: 40),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Container(
+          height: Get.height * 0.3,
           padding: const EdgeInsets.all(20),
           child: message == null || message.isEmpty
               ? Center(

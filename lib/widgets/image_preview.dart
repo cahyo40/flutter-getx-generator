@@ -1,10 +1,11 @@
 import 'dart:io';
 
-import 'package:clean_arch/utility/constants/colors.dart';
-import 'package:clean_arch/utility/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
+
+import '../utility/constants/colors.dart';
+import '../utility/constants/theme.dart';
 
 class ImagePreview extends StatelessWidget {
   final String? imageUrl;

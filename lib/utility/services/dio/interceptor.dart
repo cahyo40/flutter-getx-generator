@@ -1,6 +1,7 @@
-import 'package:clean_arch/utility/constants/datasources/api.dart';
-import 'package:clean_arch/utility/constants/datasources/database.dart';
 import 'package:dio/dio.dart';
+
+import '../../constants/datasources/api.dart';
+import '../../constants/datasources/database.dart';
 
 class DioWithRoken extends Interceptor {
   final box = AppDatabase.db;
