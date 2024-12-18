@@ -1,0 +1,3 @@
+class AppFirebaseCollection {
+  AppFirebaseCollection._();
+}

@@ -1,20 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'controllers/network_controller.dart';
+import 'pages/home/binding/home_binding.dart';
+import 'routes/route_app.dart';
+import 'routes/route_name.dart';
+import 'themes/theme.dart';
+import 'utility/constants/enum.dart';
+import 'utility/constants/theme.dart';
+import 'utility/services/api_services.dart';
+import 'utility/translations/tr.dart';
+
+// Dart Getx Custom Module Generator
+// Author: Muchammad Dwi Cahyo Nugroho
+// Version: 1.0.0
+// dibuat: 14 Desember 2024
+
+void main() async {
+  await Get.putAsync(() => DioService().init(), permanent: true);
+  Get.put(NetworkController(), permanent: true);
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Dart Getx Custom Module Generator',
+      translations: AppTranslations(),
+      locale: AppThemes.getLocale(AppLocale.ID),
+      fallbackLocale: AppThemes.getLocale(AppLocale.EN),
+      theme: AppThemeData.theme,
+      initialBinding: HomeBinding(),
+      initialRoute: PageName.home,
+      getPages: AppRoutes.routes,
     );
   }
 }
