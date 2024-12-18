@@ -16,7 +16,9 @@ import 'utility/translations/tr.dart';
 // Version: 1.0.0
 // dibuat: 14 Desember 2024
 
-void main() {
+void main() async {
+  await Get.putAsync(() => DioService().init(), permanent: true);
+  Get.put(NetworkController(), permanent: true);
   runApp(const MyApp());
 }
 
@@ -32,11 +34,7 @@ class MyApp extends StatelessWidget {
       locale: AppThemes.getLocale(AppLocale.ID),
       fallbackLocale: AppThemes.getLocale(AppLocale.EN),
       theme: AppThemeData.theme,
-      initialBinding: BindingsBuilder(() async {
-        await Get.putAsync(() => DioService().init(), permanent: true);
-        Get.put(NetworkController(), permanent: true);
-        HomeBinding();
-      }),
+      initialBinding: HomeBinding(),
       initialRoute: PageName.home,
       getPages: AppRoutes.routes,
     );

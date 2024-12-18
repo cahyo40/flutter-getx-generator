@@ -1,5 +1,6 @@
 // generator.dart
 // ignore_for_file: avoid_print, unnecessary_brace_in_string_interps
+// Author: Muchammad Dwi Cahyo Nugroho
 
 import 'dart:io';
 
@@ -22,7 +23,7 @@ Examples:
   }
 
   final command = args[0];
-  
+
   // Add init command handling
   if (command == 'init') {
     initializeGetXProject();
@@ -30,10 +31,10 @@ Examples:
   }
 
   // Handle screen generation with module context
-   if (args.length > 2 && args[1].toLowerCase() == 'on') {
+  if (args.length > 2 && args[1].toLowerCase() == 'on') {
     final type = args[0];
     final moduleName = args[2];
-    
+
     if (type == 'screen') {
       if (!moduleName.contains(':')) {
         print('❌ Invalid module format. Use module:screen format');
@@ -64,7 +65,7 @@ Examples:
     }
     final moduleName = moduleContext[0];
     final screenName = moduleContext[1];
-    
+
     if (type == 'screen') {
       generateScreenInModule(moduleName, screenName);
       return;
@@ -95,7 +96,7 @@ Examples:
 void generateSingleController(String name) {
   const basePath = 'lib/controllers';
   createDirectory(basePath);
-  
+
   final parts = name.split('.');
   final className = parts.map((part) => capitalize(part)).join();
   final fileName = name.replaceAll('.', '_').toLowerCase();
@@ -108,6 +109,7 @@ void generateSingleController(String name) {
   }
 
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:get/get.dart';
 
 class ${className}Controller extends GetxController {
@@ -124,7 +126,7 @@ class ${className}Controller extends GetxController {
 void generateSingleProvider(String name) {
   const basePath = 'lib/providers';
   createDirectory(basePath);
-  
+
   final parts = name.split('.');
   final className = parts.map((part) => capitalize(part)).join();
   final fileName = name.replaceAll('.', '_').toLowerCase();
@@ -137,6 +139,7 @@ void generateSingleProvider(String name) {
   }
 
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 //import 'package:dio/dio.dart';
 
 class ${className}Provider {
@@ -148,10 +151,11 @@ class ${className}Provider {
   writeFile(filePath, content);
   print('\n✨ Provider generated successfully!');
 }
+
 void generateSingleView(String name) {
   const basePath = 'lib/widgets/';
   createDirectory(basePath);
-  
+
   final fileName = name.replaceAll('.', '_').toLowerCase();
   final filePath = '$basePath/${fileName}_widget.dart';
 
@@ -172,7 +176,8 @@ void generateScreenInModule(String moduleName, String screenName) {
 }
 
 void generateModule(String moduleName, String? screenName) {
-  final className = moduleName.split('.').map((part) => capitalize(part)).join();
+  final className =
+      moduleName.split('.').map((part) => capitalize(part)).join();
   final basePath = 'lib/pages/$moduleName';
 
   // Check if module directory already exists
@@ -194,7 +199,7 @@ void generateModule(String moduleName, String? screenName) {
   }
 
   final fileBaseName = moduleName.replaceAll('.', '_');
-  
+
   generateView('$basePath/view', fileBaseName, className);
   generateController('$basePath/controller', fileBaseName, className);
   generateBinding('$basePath/binding', fileBaseName, className);
@@ -209,6 +214,7 @@ void generateModule(String moduleName, String? screenName) {
 
   printSuccess(moduleName, screenName);
 }
+
 void createDirectory(String path) {
   final directory = Directory(path);
   if (!directory.existsSync()) {
@@ -218,6 +224,7 @@ void createDirectory(String path) {
 
 void generateView(String basePath, String moduleName, String className) {
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/${moduleName}_controller.dart';
@@ -245,8 +252,9 @@ class ${className}View extends GetView<${className}Controller> {
 void generateWidget(String basePath, String moduleName) {
   // Format the widget name to handle dots
   final formattedName = formatWidgetName(moduleName);
-  
+
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:flutter/material.dart';
 
 class ${formattedName}Widget extends StatelessWidget {
@@ -268,6 +276,7 @@ class ${formattedName}Widget extends StatelessWidget {
 
 void generateController(String basePath, String moduleName, String className) {
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:get/get.dart';
 
 class ${className}Controller extends GetxController {
@@ -282,6 +291,7 @@ class ${className}Controller extends GetxController {
 
 void generateBinding(String basePath, String moduleName, String className) {
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:get/get.dart';
 import '../controller/${moduleName}_controller.dart';
 
@@ -300,6 +310,7 @@ class ${className}Binding implements Bindings {
 
 void generateProvider(String basePath, String moduleName, String className) {
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 //import 'package:dio/dio.dart';
 
 class ${className}Provider {
@@ -324,6 +335,7 @@ void generateScreen(String basePath, String moduleName, String screenName) {
   }
 
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/${moduleName}_controller.dart';
@@ -348,12 +360,13 @@ class ${className}Screen extends GetView<${capitalize(moduleName)}Controller> {
   writeFile(filePath, content);
 }
 
-void generateRoutes(String basePath, String moduleFileName, String className, String? screenName) {
+void generateRoutes(String basePath, String moduleFileName, String className,
+    String? screenName) {
   // Convert module file name to camelCase for route variable name
   final routeVariableName = toCamelCase(moduleFileName);
-  
 
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:get/get.dart';
 import '../../../routes/route_name.dart';
 import '../binding/${moduleFileName}_binding.dart';
@@ -381,6 +394,7 @@ void updatePageNames(String moduleName) {
   var content = File(path).existsSync()
       ? File(path).readAsStringSync()
       : '''
+// Author: Muchammad Dwi Cahyo Nugroho
 abstract class PageName {
   
 }
@@ -388,8 +402,7 @@ abstract class PageName {
 
   if (!content.contains(routeName)) {
     final insertIndex = content.lastIndexOf('}');
-    content = content.replaceRange(insertIndex, insertIndex,
-        '$routeName\n');
+    content = content.replaceRange(insertIndex, insertIndex, '$routeName\n');
   }
 
   writeFile(path, content);
@@ -399,7 +412,7 @@ abstract class PageName {
 
 void writeFile(String path, String content) {
   final file = File(path);
-  
+
   // Check if file already exists
   if (file.existsSync()) {
     print('⚠️ File already exists: $path');
@@ -408,7 +421,7 @@ void writeFile(String path, String content) {
 
   // Create parent directories if they don't exist
   file.parent.createSync(recursive: true);
-  
+
   // Write the file
   file.writeAsStringSync(content);
   print('📝 Generated: $path');
@@ -451,15 +464,17 @@ void printSuccess(String modulePath, String? screenName) {
 ''');
 }
 
-void updateRouteApp(String moduleName, String moduleFileName, String? screenName) {
+void updateRouteApp(
+    String moduleName, String moduleFileName, String? screenName) {
   const routeAppPath = 'lib/routes/route_app.dart';
-  
+
   createDirectory('lib/routes');
 
   // Convert module file name to camelCase for route variable name
   final routeVariableName = toCamelCase(moduleFileName);
 
   final content = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:get/get.dart';
 import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';
 
@@ -472,27 +487,24 @@ abstract class AppRoutes {
 
   if (File(routeAppPath).existsSync()) {
     var existingContent = File(routeAppPath).readAsStringSync();
-    
-    final importStatement = "import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';";
+
+    final importStatement =
+        "import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';";
     if (!existingContent.contains(importStatement)) {
       final lastImportIndex = existingContent.lastIndexOf('import');
-      final endOfImportIndex = existingContent.indexOf(';', lastImportIndex) + 1;
+      final endOfImportIndex =
+          existingContent.indexOf(';', lastImportIndex) + 1;
       existingContent = existingContent.replaceRange(
-        endOfImportIndex, 
-        endOfImportIndex, 
-        '\n$importStatement'
-      );
+          endOfImportIndex, endOfImportIndex, '\n$importStatement');
     }
 
     final routeRegistration = "${routeVariableName}Route,";
     if (!existingContent.contains(routeRegistration)) {
-      final routesIndex = existingContent.indexOf('static final routes = <GetPage>[') + 
-                         'static final routes = <GetPage>['.length;
+      final routesIndex =
+          existingContent.indexOf('static final routes = <GetPage>[') +
+              'static final routes = <GetPage>['.length;
       existingContent = existingContent.replaceRange(
-        routesIndex, 
-        routesIndex, 
-        '\n    $routeRegistration'
-      );
+          routesIndex, routesIndex, '\n    $routeRegistration');
     }
 
     writeFile(routeAppPath, existingContent);
@@ -519,6 +531,7 @@ void initializeGetXProject() {
 
   // Generate new main.dart content
   const mainContent = '''
+// Author: Muchammad Dwi Cahyo Nugroho
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'routes/route_app.dart';
@@ -556,7 +569,8 @@ class MyApp extends StatelessWidget {
 
   // Check if main.dart exists and warn before overwriting
   if (File('lib/main.dart').existsSync()) {
-    print('⚠️ Existing main.dart will be overwritten. Backing up as main.dart.bak');
+    print(
+        '⚠️ Existing main.dart will be overwritten. Backing up as main.dart.bak');
     File('lib/main.dart').copySync('lib/main.dart.copy');
   }
 
