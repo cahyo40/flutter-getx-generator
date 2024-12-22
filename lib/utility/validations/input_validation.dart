@@ -1,5 +1,6 @@
-import '../constants/message/validation.dart';
 import 'package:get/get.dart';
+
+import '../constants/message/validation.dart';
 
 class InputValidation {
   static String? email(String value) {
