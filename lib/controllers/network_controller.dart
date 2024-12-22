@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 import '../utility/constants/message/exception.dart';
 import '../widgets/snackbar.dart';
@@ -11,7 +11,8 @@ class NetworkController extends GetxController {
   RxBool isConnected = false.obs;
   RxBool isCheckingConnection = false.obs;
 
-  final Connectivity _connectivity = Connectivity();
+  final InternetConnection _internetConnection =
+      InternetConnection.createInstance();
   StreamSubscription? _connectivitySubscription;
 
   Future<bool> checkConnection() async {
@@ -19,8 +20,9 @@ class NetworkController extends GetxController {
 
     isCheckingConnection.value = true;
     try {
-      final connectivityResult = await _connectivity.checkConnectivity();
-      if (connectivityResult[0] == ConnectivityResult.none) {
+      final hasConnection = await _internetConnection.hasInternetAccess;
+
+      if (!hasConnection) {
         AppSnackbar(
           message: ExceptionMessage.NO_INTERNET.tr,
           messageType: SnackbarMessageType.ERROR,
@@ -28,11 +30,9 @@ class NetworkController extends GetxController {
         isConnected.value = false;
         return false;
       }
-      final result = await InternetAddress.lookup('google.com')
-          .timeout(const Duration(seconds: 5));
 
-      isConnected.value = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
-      return isConnected.value;
+      isConnected.value = true;
+      return true;
     } catch (e) {
       if (e is SocketException) {
         AppSnackbar(
@@ -58,8 +58,8 @@ class NetworkController extends GetxController {
   }
 
   void _setupConnectivityListener() {
-    _connectivitySubscription = _connectivity.onConnectivityChanged
-        .listen((List<ConnectivityResult> result) async {
+    _connectivitySubscription = _internetConnection.onStatusChange
+        .listen((InternetStatus status) async {
       await Future.delayed(const Duration(milliseconds: 500));
       await checkConnection();
     });
