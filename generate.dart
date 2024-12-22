@@ -140,13 +140,13 @@ void generateSingleProvider(String name) {
 
   final content = '''
 // Author: Muchammad Dwi Cahyo Nugroho
-//import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import '../../../utility/exceptions/dio.dart';
 import '../../../utility/services/api_services.dart';
 
 class ${className}Provider {
-  // final Dio _dio = Get.find<DioService>().dio;
+   final Dio _dio = Get.find<DioService>().dio;
 
   ${className}Provider();
 }''';
@@ -314,13 +314,13 @@ class ${className}Binding implements Bindings {
 void generateProvider(String basePath, String moduleName, String className) {
   final content = '''
 // Author: Muchammad Dwi Cahyo Nugroho
-//import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import '../../../utility/exceptions/dio.dart';
 import '../../../utility/services/api_services.dart';
 
 class ${className}Provider {
-// final Dio _dio = Get.find<DioService>().dio;
+ final Dio _dio = Get.find<DioService>().dio;
 
   ${className}Provider();
 }''';
