@@ -170,7 +170,7 @@ void generateSingleView(String name) {
 }
 
 void generateScreenInModule(String moduleName, String screenName) {
-  final basePath = 'lib/pages/$moduleName/view/screen';
+  final basePath = 'lib/pages/$moduleName';
   generateScreen(basePath, moduleName, screenName);
   print('\n✨ Screen generated successfully in $moduleName module!');
 }
