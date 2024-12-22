@@ -388,24 +388,86 @@ void updatePageNames(String moduleName) {
   createDirectory('lib/routes');
   String moduleNames = toCamelCase(moduleName);
 
-  final routeName = '''
-  static const ${moduleNames} = '/${moduleName}';''';
-
-  var content = File(path).existsSync()
-      ? File(path).readAsStringSync()
-      : '''
+  // Inisialisasi konten default jika file tidak ada
+  var content = '''
 // Author: Muchammad Dwi Cahyo Nugroho
 abstract class PageName {
   
 }
 ''';
 
+  // Baca konten yang ada jika file sudah ada
+  if (File(path).existsSync()) {
+    content = File(path).readAsStringSync();
+  }
+
+  final routeName = '''
+  static const ${moduleNames} = '/${moduleName}';''';
+
+  // Cek apakah route sudah ada
   if (!content.contains(routeName)) {
     final insertIndex = content.lastIndexOf('}');
     content = content.replaceRange(insertIndex, insertIndex, '$routeName\n');
-  }
 
-  writeFile(path, content);
+    // Tulis kembali file
+    File(path).writeAsStringSync(content);
+    print('✨ Updated route name in $path');
+  }
+}
+
+void updateRouteApp(
+    String moduleName, String moduleFileName, String? screenName) {
+  const routeAppPath = 'lib/routes/route_app.dart';
+  createDirectory('lib/routes');
+
+  final routeVariableName = toCamelCase(moduleFileName);
+
+  // Template konten default
+  final defaultContent = '''
+// Author: Muchammad Dwi Cahyo Nugroho
+import 'package:get/get.dart';
+import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';
+
+abstract class AppRoutes {
+  static final routes = <GetPage>[
+    ${routeVariableName}Route,
+  ];
+}
+''';
+
+  if (File(routeAppPath).existsSync()) {
+    var existingContent = File(routeAppPath).readAsStringSync();
+    bool contentUpdated = false;
+
+    // Tambahkan import jika belum ada
+    final importStatement =
+        "import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';";
+    if (!existingContent.contains(importStatement)) {
+      final lastImportIndex = existingContent.lastIndexOf('import');
+      final endOfImportIndex =
+          existingContent.indexOf(';', lastImportIndex) + 1;
+      existingContent = existingContent.replaceRange(
+          endOfImportIndex, endOfImportIndex, '\n$importStatement');
+      contentUpdated = true;
+    }
+
+    // Tambahkan route jika belum ada
+    final routeRegistration = "${routeVariableName}Route,";
+    if (!existingContent.contains(routeRegistration)) {
+      final routesArrayStart = existingContent.indexOf('[') + 1;
+      existingContent = existingContent.replaceRange(
+          routesArrayStart, routesArrayStart, '\n    $routeRegistration');
+      contentUpdated = true;
+    }
+
+    if (contentUpdated) {
+      File(routeAppPath).writeAsStringSync(existingContent);
+      print('✨ Updated routes in $routeAppPath');
+    }
+  } else {
+    File(routeAppPath).writeAsStringSync(defaultContent);
+    print('✨ Created new routes file at $routeAppPath');
+  }
 }
 
 // ... existing code ...
@@ -462,55 +524,6 @@ void printSuccess(String modulePath, String? screenName) {
   2. Import the generated module in your app
   3. Start coding! 🎉
 ''');
-}
-
-void updateRouteApp(
-    String moduleName, String moduleFileName, String? screenName) {
-  const routeAppPath = 'lib/routes/route_app.dart';
-
-  createDirectory('lib/routes');
-
-  // Convert module file name to camelCase for route variable name
-  final routeVariableName = toCamelCase(moduleFileName);
-
-  final content = '''
-// Author: Muchammad Dwi Cahyo Nugroho
-import 'package:get/get.dart';
-import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';
-
-abstract class AppRoutes {
-  static final routes = <GetPage>[
-    ${routeVariableName}Route,
-  ];
-}
-''';
-
-  if (File(routeAppPath).existsSync()) {
-    var existingContent = File(routeAppPath).readAsStringSync();
-
-    final importStatement =
-        "import '../pages/$moduleName/routes/${moduleFileName}_routes.dart';";
-    if (!existingContent.contains(importStatement)) {
-      final lastImportIndex = existingContent.lastIndexOf('import');
-      final endOfImportIndex =
-          existingContent.indexOf(';', lastImportIndex) + 1;
-      existingContent = existingContent.replaceRange(
-          endOfImportIndex, endOfImportIndex, '\n$importStatement');
-    }
-
-    final routeRegistration = "${routeVariableName}Route,";
-    if (!existingContent.contains(routeRegistration)) {
-      final routesIndex =
-          existingContent.indexOf('static final routes = <GetPage>[') +
-              'static final routes = <GetPage>['.length;
-      existingContent = existingContent.replaceRange(
-          routesIndex, routesIndex, '\n    $routeRegistration');
-    }
-
-    writeFile(routeAppPath, existingContent);
-  } else {
-    writeFile(routeAppPath, content);
-  }
 }
 
 // Add helper function to convert snake_case to camelCase
