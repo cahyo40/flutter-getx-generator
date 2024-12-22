@@ -1,7 +1,7 @@
-import 'package:clean_arch/utility/exceptions/dio.dart';
 import 'package:dio/dio.dart' hide Response;
 import 'package:get/get.dart';
 
+import '../../../utility/exceptions/dio.dart';
 import '../../../utility/services/api_services.dart';
 
 class HomeProvider {

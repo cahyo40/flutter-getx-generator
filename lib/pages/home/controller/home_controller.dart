@@ -1,7 +1,7 @@
-import 'package:clean_arch/utility/helpers/string.dart';
-import 'package:clean_arch/widgets/snackbar.dart';
 import 'package:get/get.dart';
 
+import '../../../utility/helpers/string.dart';
+import '../../../widgets/snackbar.dart';
 import '../provider/home_provider.dart';
 
 class HomeController extends GetxController {

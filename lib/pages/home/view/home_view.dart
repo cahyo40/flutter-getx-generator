@@ -1,9 +1,9 @@
-import 'package:clean_arch/utility/constants/message/utility.dart';
-import 'package:clean_arch/widgets/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../utility/constants/message/utility.dart';
 import '../../../widgets/button.dart';
+import '../../../widgets/loading.dart';
 import '../controller/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {

@@ -17,8 +17,8 @@ import 'utility/translations/tr.dart';
 // dibuat: 14 Desember 2024
 
 void main() async {
-  await Get.putAsync(() => DioService().init(), permanent: true);
   Get.put(NetworkController(), permanent: true);
+  await Get.putAsync(() => DioService().init(), permanent: true);
   runApp(const MyApp());
 }
 

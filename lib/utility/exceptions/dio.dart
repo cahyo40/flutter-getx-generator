@@ -1,7 +1,9 @@
 import 'dart:io';
-import '../constants/message/exception.dart';
+
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+
+import '../constants/message/exception.dart';
 
 class DioExceptionHandler implements Exception {
   late String errorMessage;
