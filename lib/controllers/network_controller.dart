@@ -22,17 +22,16 @@ class NetworkController extends GetxController {
     try {
       final hasConnection = await _internetConnection.hasInternetAccess;
 
+      isConnected.value = hasConnection;
+
       if (!hasConnection) {
         AppSnackbar(
           message: ExceptionMessage.NO_INTERNET.tr,
           messageType: SnackbarMessageType.ERROR,
         ).show();
-        isConnected.value = false;
-        return false;
       }
 
-      isConnected.value = true;
-      return true;
+      return hasConnection;
     } catch (e) {
       if (e is SocketException) {
         AppSnackbar(
@@ -60,8 +59,11 @@ class NetworkController extends GetxController {
   void _setupConnectivityListener() {
     _connectivitySubscription = _internetConnection.onStatusChange
         .listen((InternetStatus status) async {
-      await Future.delayed(const Duration(milliseconds: 500));
-      await checkConnection();
+      await Future.delayed(const Duration(seconds: 1));
+
+      if (status == InternetStatus.disconnected) {
+        await checkConnection();
+      }
     });
   }
 
