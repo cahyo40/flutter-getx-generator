@@ -24,13 +24,6 @@ class NetworkController extends GetxController {
 
       isConnected.value = hasConnection;
 
-      if (!hasConnection) {
-        AppSnackbar(
-          message: ExceptionMessage.NO_INTERNET.tr,
-          messageType: SnackbarMessageType.ERROR,
-        ).show();
-      }
-
       return hasConnection;
     } catch (e) {
       if (e is SocketException) {
@@ -45,7 +38,7 @@ class NetworkController extends GetxController {
         ).show();
       } else {
         AppSnackbar(
-          message: ExceptionMessage.CONNECTION_ERROR.tr,
+          message: ExceptionMessage.NO_INTERNET.tr,
           messageType: SnackbarMessageType.ERROR,
         ).show();
       }
