@@ -17,7 +17,7 @@ Template proyek Flutter menggunakan GetX untuk manajemen state, routing, dan dep
 Git Clone terlebih dahulu
 
 ```
-git clone https://github.com/cahyo40/Flutter-getx.git
+git clone https://github.com/cahyo40/flutter-getx-generator.git
 ```
 
 Flutter Clean dan Pub Get
