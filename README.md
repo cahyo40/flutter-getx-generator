@@ -1,8 +1,38 @@
 # Dart GetX Custom Module Generator
 
-A Flutter project template using GetX for state management, routing, and dependency injection. This project includes a custom module generator to quickly scaffold common components.
+Template proyek Flutter menggunakan GetX untuk manajemen state, routing, dan dependency injection. Proyek ini mencakup generator modul kustom untuk dengan cepat membuat komponen umum.
 
-## Features
+## Penggunaan
+
+Git Clone terlebih dahulu
+
+```
+git clone https://github.com/cahyo40/Flutter-getx.git
+```
+
+Flutter Clean dan Pub Get
+
+```
+flutter clean
+```
+
+```
+flutter pub get
+```
+
+Mengubah nama package
+
+```
+dart run change_app_package_name:main com.mdcnugroho.test
+```
+
+Mengubah nama aplikasi
+
+```
+dart run rename_app:main all="My App Name"
+```
+
+## Fitur
 
 - Clean Architecture structure
 - GetX state management
@@ -12,18 +42,38 @@ A Flutter project template using GetX for state management, routing, and depende
 - API service integration with Dio
 - Custom module generator
 
-## Generator Usage
+## Penggunaan Generator
 
 The `generate.dart` script provides a command-line tool to quickly scaffold common components in your GetX project. Here are the available commands:
 
-### Initialize Project Structure
+### Perintah yang bisa digunakan
 
-```bash
-dart namefile.dart init           // Initialize GetX project structure
-dart namefile.dart page:login     // Generates complete login page
-dart namefile.dart controller:network // Generates only network controller
-dart namefile.dart provider:testing   // Generates only testing provider
-dart namefile.dart widget:loading     // Generates only loading widget
-dart namefile.dart screen on login:form  // Generates form screen in login module
-dart namefile.dart screen on home:form  // Generates form screen in home module
+Membuat page baru
+
+```
+dart generate.dart page:login
+```
+
+Membuat controller
+
+```
+dart generate.dart controller:network
+```
+
+Membuat provider
+
+```
+dart generate.dart provider:testing
+```
+
+Membuat Widget
+
+```
+dart generate.dart widget:loading
+```
+
+Membuat screen pada page
+
+```
+dart generate.dart screen on home:form
 ```
