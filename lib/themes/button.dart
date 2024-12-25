@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../utility/constants/colors.dart';
 import '../utility/constants/enum.dart';
-import '../utility/constants/theme.dart';
+import 'colors.dart';
+import 'theme.dart';
 
 class AppButtonStyle {
   AppButtonStyle._();

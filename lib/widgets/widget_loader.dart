@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../utility/constants/colors.dart';
-import '../utility/constants/theme.dart';
+import '../themes/colors.dart';
+import '../themes/theme.dart';
 import 'loading.dart';
 
 class AppLoader extends StatelessWidget {

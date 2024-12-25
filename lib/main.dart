@@ -6,8 +6,8 @@ import 'pages/home/binding/home_binding.dart';
 import 'routes/route_app.dart';
 import 'routes/route_name.dart';
 import 'themes/theme.dart';
+import 'themes/theme_data.dart';
 import 'utility/constants/enum.dart';
-import 'utility/constants/theme.dart';
 import 'utility/services/api_services.dart';
 import 'utility/translations/tr.dart';
 

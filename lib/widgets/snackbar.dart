@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../app/config.dart';
-import '../utility/constants/colors.dart';
-import '../utility/constants/theme.dart';
+import '../themes/colors.dart';
+import '../themes/theme.dart';
 
 enum SnackbarMessageType { SUCCESS, INFO, WARNING, ERROR }
 

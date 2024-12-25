@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
-import '../utility/constants/colors.dart';
-import '../utility/constants/theme.dart';
+import '../themes/colors.dart';
+import '../themes/theme.dart';
 
 class AppDialogLoading {
   static void show([String? message]) {

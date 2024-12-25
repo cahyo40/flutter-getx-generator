@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../utility/constants/colors.dart';
-import '../utility/constants/theme.dart';
+import 'colors.dart';
+import 'theme.dart';
 
 class AppInputDecoration {
   static InputDecorationTheme outlined() {
