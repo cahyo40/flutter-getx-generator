@@ -22,6 +22,18 @@ class AppThemes {
         return GoogleFonts.nunitoTextTheme();
       case Fonts.JAKARTA_SANS:
         return GoogleFonts.plusJakartaSansTextTheme();
+      case Fonts.PLAYFAIR_DISPLAY:
+        return GoogleFonts.playfairDisplayTextTheme();
+      case Fonts.LORA:
+        return GoogleFonts.loraTextTheme();
+      case Fonts.OSWALD:
+        return GoogleFonts.oswaldTextTheme();
+      case Fonts.BEBAS_NEUE:
+        return GoogleFonts.bebasNeueTextTheme();
+      case Fonts.QUESTRIAL:
+        return GoogleFonts.questrialTextTheme();
+      case Fonts.KANIT:
+        return GoogleFonts.kanitTextTheme();
 
       default:
         return GoogleFonts.poppinsTextTheme();
@@ -69,4 +81,8 @@ class AppSize {
   static double large = 24;
   //// custom params [double]
   static double custom(double size) => size;
+}
+
+class AppFonts {
+  static TextTheme app = AppThemes.appFonts();
 }
