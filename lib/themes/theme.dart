@@ -10,7 +10,6 @@ class AppThemes {
 
   static const double radius = 14.0;
   static const Duration duration = Duration(milliseconds: 1500);
-  static EdgeInsets paddingAll = const EdgeInsets.all(24);
   static TextTheme appFonts() {
     Fonts fonts = AppConfig.fontsFamily;
     switch (fonts) {

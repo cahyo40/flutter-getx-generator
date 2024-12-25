@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../themes/colors.dart';
-import '../../themes/theme.dart';
+import '../../themes/padding.dart';
 
 /// Widget TextField kustom yang digunakan di seluruh aplikasi.
 ///
@@ -106,7 +106,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppSize.medium),
+      padding: AppPadding.paddingInput,
       child: TextFormField(
         obscureText: obsecureText,
         maxLength: maxLength,

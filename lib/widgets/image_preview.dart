@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
 
 import '../themes/colors.dart';
-import '../themes/theme.dart';
+import '../themes/padding.dart';
 
 class ImagePreview extends StatelessWidget {
   final String? imageUrl;
@@ -54,7 +54,7 @@ class ImagePreview extends StatelessWidget {
                     child: Container(
                       height: Get.height * 0.1,
                       width: double.infinity,
-                      padding: AppThemes.paddingAll,
+                      padding: AppPadding.paddingList,
                       color: AppColors.background,
                       child: Text(
                         description!,

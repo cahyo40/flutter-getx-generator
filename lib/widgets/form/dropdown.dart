@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../themes/colors.dart';
+import '../../themes/padding.dart';
 import '../../themes/theme.dart';
 import '../../utility/validations/input_validation.dart';
 
@@ -54,7 +55,7 @@ class AppDropDown extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    padding: AppThemes.paddingAll,
+                    padding: AppPadding.paddingList,
                     constraints: BoxConstraints(
                       maxHeight: Get.height * 0.5 - 75,
                       maxWidth: double.infinity,
