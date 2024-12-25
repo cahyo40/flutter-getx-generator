@@ -2,6 +2,16 @@
 
 Template proyek Flutter menggunakan GetX untuk manajemen state, routing, dan dependency injection. Proyek ini mencakup generator modul kustom untuk dengan cepat membuat komponen umum.
 
+## Fitur
+
+- Clean Architecture structure
+- GetX state management
+- Multi-language support (ID & EN)
+- Network connectivity handling
+- Theme management
+- API service integration with Dio
+- Custom module generator
+
 ## Penggunaan
 
 Git Clone terlebih dahulu
@@ -31,16 +41,6 @@ Mengubah nama aplikasi
 ```
 dart run rename_app:main all="My App Name"
 ```
-
-## Fitur
-
-- Clean Architecture structure
-- GetX state management
-- Multi-language support (ID & EN)
-- Network connectivity handling
-- Theme management
-- API service integration with Dio
-- Custom module generator
 
 ## Penggunaan Generator
 
