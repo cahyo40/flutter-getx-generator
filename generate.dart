@@ -14,7 +14,7 @@ Examples:
   dart namefile.dart init           // Initialize GetX project structure
   dart namefile.dart page:login     // Generates complete login page
   dart namefile.dart controller:network // Generates only network controller
-  dart namefile.dart provider:testing   // Generates only testing provider
+  dart namefile.dart repository:testing   // Generates only testing repository
   dart namefile.dart widget:loading     // Generates only loading widget
   dart namefile.dart screen on login:form  // Generates form screen in login module
   dart namefile.dart screen on home:form  // Generates form screen in home module
@@ -80,8 +80,8 @@ Examples:
     case 'controller':
       generateSingleController(name);
       break;
-    case 'provider':
-      generateSingleProvider(name);
+    case 'repository':
+      generateSingleRepository(name);
       break;
     case 'widget':
       generateSingleView(name);
@@ -113,9 +113,9 @@ void generateSingleController(String name) {
 import 'package:get/get.dart';
 
 class ${className}Controller extends GetxController {
-  final count = 0.obs;
-
-  void increment() => count.value++;
+  final isLoading = false.obs;
+  RxnString errorMessage = RxnString(null);
+  
 }
 ''';
 
@@ -123,18 +123,18 @@ class ${className}Controller extends GetxController {
   print('\n✨ Controller generated successfully!');
 }
 
-void generateSingleProvider(String name) {
-  const basePath = 'lib/providers';
+void generateSingleRepository(String name) {
+  const basePath = 'lib/repositories';
   createDirectory(basePath);
 
   final parts = name.split('.');
   final className = parts.map((part) => capitalize(part)).join();
   final fileName = name.replaceAll('.', '_').toLowerCase();
-  final filePath = '$basePath/${fileName}_provider.dart';
+  final filePath = '$basePath/${fileName}_repository.dart';
 
-  // Check if provider already exists
+  // Check if repository already exists
   if (File(filePath).existsSync()) {
-    print('⚠️ Provider already exists: $filePath');
+    print('⚠️ Repository already exists: $filePath');
     return;
   }
 
@@ -145,14 +145,18 @@ import 'package:get/get.dart' hide Response;
 import '../../../utility/exceptions/dio.dart';
 import '../../../utility/services/api_services.dart';
 
-class ${className}Provider {
+abstract class ${className}Repository{
+
+}
+
+class ${className}RepositoryImpl implements ${className}Repository {
    final Dio _dio = Get.find<DioService>().dio;
 
-  ${className}Provider();
+  
 }''';
 
   writeFile(filePath, content);
-  print('\n✨ Provider generated successfully!');
+  print('\n✨ Repository generated successfully!');
 }
 
 void generateSingleView(String name) {
@@ -195,8 +199,11 @@ void generateModule(String moduleName, String? screenName) {
   createDirectory('$basePath/view');
   createDirectory('$basePath/controller');
   createDirectory('$basePath/binding');
-  createDirectory('$basePath/provider');
+  createDirectory('$basePath/repository');
   createDirectory('$basePath/routes');
+  createDirectory('$basePath/model'); // Create model directory
+  createDirectory('$basePath/entity'); // Create entity directory
+  createDirectory('$basePath/usecase'); // Create entity directory
   if (screenName != null) {
     createDirectory('$basePath/view/screen');
   }
@@ -206,7 +213,7 @@ void generateModule(String moduleName, String? screenName) {
   generateView('$basePath/view', fileBaseName, className);
   generateController('$basePath/controller', fileBaseName, className);
   generateBinding('$basePath/binding', fileBaseName, className);
-  generateProvider('$basePath/provider', fileBaseName, className);
+  generateRepository('$basePath/repository', fileBaseName, className);
   generateRoutes('$basePath/routes', fileBaseName, className, screenName);
   updatePageNames(fileBaseName);
   updateRouteApp(moduleName, fileBaseName, screenName);
@@ -283,9 +290,8 @@ void generateController(String basePath, String moduleName, String className) {
 import 'package:get/get.dart';
 
 class ${className}Controller extends GetxController {
-  final count = 0.obs;
-
-  void increment() => count.value++;
+  final isLoading = false.obs;
+  RxnString errorMessage = RxnString(null);
 }
 ''';
 
@@ -311,7 +317,7 @@ class ${className}Binding implements Bindings {
   writeFile('$basePath/${moduleName}_binding.dart', content);
 }
 
-void generateProvider(String basePath, String moduleName, String className) {
+void generateRepository(String basePath, String moduleName, String className) {
   final content = '''
 // Author: Muchammad Dwi Cahyo Nugroho
 import 'package:dio/dio.dart';
@@ -319,13 +325,17 @@ import 'package:get/get.dart' hide Response;
 import '../../../utility/exceptions/dio.dart';
 import '../../../utility/services/api_services.dart';
 
-class ${className}Provider {
- final Dio _dio = Get.find<DioService>().dio;
+abstract class ${className}Repository{
 
-  ${className}Provider();
+}
+
+class ${className}RepositoryImpl implements ${className}Repository {
+   final Dio _dio = Get.find<DioService>().dio;
+
+  
 }''';
 
-  writeFile('$basePath/${moduleName}_provider.dart', content);
+  writeFile('$basePath/${moduleName}_repository.dart', content);
 }
 
 void generateScreen(String basePath, String moduleName, String screenName) {
@@ -514,8 +524,8 @@ void printSuccess(String modulePath, String? screenName) {
      │  └─ ${modulePath.replaceAll('/', '_')}_controller.dart
      ├─ binding/
      │  └─ ${modulePath.replaceAll('/', '_')}_binding.dart
-     ├─ provider/
-     │  └─ ${modulePath.replaceAll('/', '_')}_provider.dart
+     ├─ repository/
+     │  └─ ${modulePath.replaceAll('/', '_')}_repository.dart
      └─ routes/
         └─ ${modulePath.replaceAll('/', '_')}_routes.dart''');
 
