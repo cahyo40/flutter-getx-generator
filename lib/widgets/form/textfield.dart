@@ -1,4 +1,6 @@
+import 'package:clean_arch/controllers/obsecure_text_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../themes/colors.dart';
@@ -67,20 +69,11 @@ class AppTextField extends StatelessWidget {
   /// Widget ikon yang ditampilkan di field.
   final Widget? icon;
 
-  /// Menentukan apakah teks harus disamarkan.
-  ///
-  /// Biasanya digunakan untuk field password.
-  /// Default: false
-  final bool obsecureText;
-
   /// Menandai apakah field ini adalah field password.
   ///
   /// Jika true, akan menampilkan toggle untuk show/hide password.
   /// Default: false
   final bool isPassword;
-
-  /// Callback yang dipanggil ketika toggle show/hide password ditekan.
-  final VoidCallback? obsecureTextChange;
 
   /// Membuat instance dari [AppTextField].
   ///
@@ -98,61 +91,73 @@ class AppTextField extends StatelessWidget {
     this.readOnly = false,
     this.enabled = true,
     this.icon,
-    this.obsecureTextChange,
-    this.obsecureText = false,
     this.isPassword = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final obsecureTextController = Get.put(ObsecureTextController());
+
     return Padding(
       padding: AppPadding.paddingInput,
-      child: TextFormField(
-        obscureText: obsecureText,
-        maxLength: maxLength,
-        keyboardType: textInputType ?? TextInputType.text,
-        maxLines: maxLines ?? 1,
-        controller: controller,
-        readOnly: readOnly ?? false,
-        enabled: enabled ?? true,
-        validator: (value) {
-          return validator!(value);
-        },
-        cursorColor: AppColors.black,
-        decoration: icon == null || icon is SizedBox
-            ? InputDecoration(
-                labelText: labelText,
-                hintText: hintText,
-                suffixIcon: isPassword
-                    ? GestureDetector(
-                        onTap: obsecureTextChange,
-                        child: obsecureText
-                            ? const Icon(
-                                Iconsax.eye_outline,
-                              )
-                            : const Icon(
-                                Iconsax.eye_slash_outline,
-                              ),
-                      )
-                    : null,
-              )
-            : InputDecoration(
-                prefixIcon: icon,
-                labelText: labelText,
-                hintText: hintText,
-                suffixIcon: isPassword
-                    ? GestureDetector(
-                        onTap: obsecureTextChange,
-                        child: obsecureText
-                            ? const Icon(
-                                Iconsax.eye_outline,
-                              )
-                            : const Icon(
-                                Iconsax.eye_slash_outline,
-                              ),
-                      )
-                    : null,
-              ),
+      child: Obx(
+        () => TextFormField(
+          obscureText:
+              obsecureTextController.obscureTextMap[labelText]?.value ??
+                  isPassword,
+          maxLength: maxLength,
+          keyboardType: textInputType ?? TextInputType.text,
+          maxLines: maxLines ?? 1,
+          controller: controller,
+          readOnly: readOnly ?? false,
+          enabled: enabled ?? true,
+          validator: (value) {
+            return validator!(value);
+          },
+          cursorColor: AppColors.black,
+          decoration: icon == null || icon is SizedBox
+              ? InputDecoration(
+                  labelText: labelText,
+                  hintText: hintText,
+                  suffixIcon: isPassword
+                      ? GestureDetector(
+                          onTap: () {
+                            obsecureTextController.toggleObscureText(labelText);
+                          },
+                          child: obsecureTextController
+                                      .obscureTextMap[labelText]?.isTrue ??
+                                  true
+                              ? const Icon(
+                                  Iconsax.eye_outline,
+                                )
+                              : const Icon(
+                                  Iconsax.eye_slash_outline,
+                                ),
+                        )
+                      : null,
+                )
+              : InputDecoration(
+                  prefixIcon: icon,
+                  labelText: labelText,
+                  hintText: hintText,
+                  suffixIcon: isPassword
+                      ? GestureDetector(
+                          onTap: () {
+                            obsecureTextController.toggleObscureText(labelText);
+                          },
+                          child: obsecureTextController
+                                      .obscureTextMap[labelText]?.isTrue ??
+                                  true
+                              ? const Icon(
+                                  Iconsax.eye_outline,
+                                )
+                              : const Icon(
+                                  Iconsax.eye_slash_outline,
+                                ),
+                        )
+                      : null,
+                ),
+        ),
       ),
     );
   }
