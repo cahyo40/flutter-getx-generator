@@ -16,7 +16,15 @@ class AppLayout extends StatelessWidget {
         if (constraints.maxWidth < 600) {
           return mobile;
         } else {
-          return tablet ?? mobile;
+          return OrientationBuilder(
+            builder: (context, orientation) {
+              if (orientation == Orientation.landscape) {
+                return tablet ?? mobile;
+              } else {
+                return mobile;
+              }
+            },
+          );
         }
       },
     );
