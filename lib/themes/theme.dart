@@ -10,7 +10,7 @@ class AppThemes {
 
   static const double radius = 14.0;
   static const Duration duration = Duration(milliseconds: 1500);
-  static TextTheme appFonts() {
+  static TextTheme fonts() {
     Fonts fonts = AppConfig.fontsFamily;
     switch (fonts) {
       case Fonts.FIGTREE:
