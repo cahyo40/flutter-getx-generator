@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../themes/colors.dart';
 import '../themes/theme.dart';
-import 'loading.dart';
+import 'loading_widget.dart';
 
 class AppLoader extends StatelessWidget {
   final bool isLoading;

@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import '../../widgets/snackbar.dart';
 import '../utility/constants/datasources/env.dart';
 import '../utility/constants/enum.dart';
+import '../widgets/snackbar_widget.dart';
 
 class AppConfig {
   AppConfig._();
