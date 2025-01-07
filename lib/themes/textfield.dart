@@ -7,7 +7,7 @@ class AppInputDecoration {
   static InputDecorationTheme outlined() {
     return InputDecorationTheme(
       hintStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.grey,
             fontWeight: FontWeight.w400,
           ),
@@ -15,17 +15,17 @@ class AppInputDecoration {
       prefixIconColor: AppColors.grey,
       suffixIconColor: AppColors.grey,
       labelStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
       floatingLabelStyle: AppThemes.fonts().bodySmall!.copyWith(
-            fontSize: FontSize.xs,
+            fontSize: AppSize.fontS,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
       errorStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.error,
             fontWeight: FontWeight.w400,
           ),
@@ -77,7 +77,7 @@ class AppInputDecoration {
   static InputDecorationTheme underline() {
     return InputDecorationTheme(
       hintStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.grey,
             fontWeight: FontWeight.w400,
           ),
@@ -85,17 +85,17 @@ class AppInputDecoration {
       prefixIconColor: AppColors.grey,
       suffixIconColor: AppColors.grey,
       labelStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
       floatingLabelStyle: AppThemes.fonts().bodySmall!.copyWith(
-            fontSize: FontSize.xs,
+            fontSize: AppSize.fontS,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
       errorStyle: AppThemes.fonts().bodyMedium!.copyWith(
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             color: AppColors.error,
             fontWeight: FontWeight.w400,
           ),
