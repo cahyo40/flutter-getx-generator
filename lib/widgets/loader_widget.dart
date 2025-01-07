@@ -28,7 +28,7 @@ class AppLoader extends StatelessWidget {
             Center(
               child: Text(
                 errorMessage!,
-                style: AppThemes.appFonts().titleMedium!.copyWith(
+                style: AppThemes.fonts().titleMedium!.copyWith(
                       color: AppColors.error,
                       fontWeight: FontWeight.bold,
                     ),

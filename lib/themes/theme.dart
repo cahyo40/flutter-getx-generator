@@ -82,6 +82,6 @@ class AppSize {
   static double custom(double size) => size;
 }
 
-class AppFonts {
-  static TextTheme app = AppThemes.appFonts();
+class fonts {
+  static TextTheme app = AppThemes.fonts();
 }

@@ -16,7 +16,7 @@ class AppThemeData {
             size: FontSize.x2l,
           ),
           elevation: .25,
-          titleTextStyle: AppThemes.appFonts().titleMedium?.copyWith(
+          titleTextStyle: AppThemes.fonts().titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: AppColors.text,
               ),
@@ -24,7 +24,7 @@ class AppThemeData {
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primary,
         ),
-        textTheme: AppThemes.appFonts(),
+        textTheme: AppThemes.fonts(),
         inputDecorationTheme: AppThemes.appInputDecoration(),
         elevatedButtonTheme: AppButtonStyle.filled,
         outlinedButtonTheme: AppButtonStyle.outlined,

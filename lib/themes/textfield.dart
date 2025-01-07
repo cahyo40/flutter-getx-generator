@@ -6,7 +6,7 @@ import 'theme.dart';
 class AppInputDecoration {
   static InputDecorationTheme outlined() {
     return InputDecorationTheme(
-      hintStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      hintStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.grey,
             fontWeight: FontWeight.w400,
@@ -14,17 +14,17 @@ class AppInputDecoration {
       errorMaxLines: 2,
       prefixIconColor: AppColors.grey,
       suffixIconColor: AppColors.grey,
-      labelStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      labelStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
-      floatingLabelStyle: AppThemes.appFonts().bodySmall!.copyWith(
+      floatingLabelStyle: AppThemes.fonts().bodySmall!.copyWith(
             fontSize: FontSize.xs,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
-      errorStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      errorStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.error,
             fontWeight: FontWeight.w400,
@@ -76,7 +76,7 @@ class AppInputDecoration {
 
   static InputDecorationTheme underline() {
     return InputDecorationTheme(
-      hintStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      hintStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.grey,
             fontWeight: FontWeight.w400,
@@ -84,17 +84,17 @@ class AppInputDecoration {
       errorMaxLines: 2,
       prefixIconColor: AppColors.grey,
       suffixIconColor: AppColors.grey,
-      labelStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      labelStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
-      floatingLabelStyle: AppThemes.appFonts().bodySmall!.copyWith(
+      floatingLabelStyle: AppThemes.fonts().bodySmall!.copyWith(
             fontSize: FontSize.xs,
             color: AppColors.text,
             fontWeight: FontWeight.w400,
           ),
-      errorStyle: AppThemes.appFonts().bodyMedium!.copyWith(
+      errorStyle: AppThemes.fonts().bodyMedium!.copyWith(
             fontSize: FontSize.sm,
             color: AppColors.error,
             fontWeight: FontWeight.w400,

@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
               width: 1.5,
               color: getButtonColor(buttonColor),
             ),
-            textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+            textStyle: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -39,7 +39,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -53,7 +53,7 @@ class AppButton extends StatelessWidget {
               color: getButtonColor(buttonColor),
             ),
             iconColor: getButtonColor(buttonColor),
-            textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+            textStyle: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -61,7 +61,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           label: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -78,7 +78,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
                   color: AppColors.white,
                 ),
@@ -92,7 +92,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           label: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
                   color: AppColors.white,
                 ),

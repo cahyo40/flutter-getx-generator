@@ -33,7 +33,7 @@ class AppLoading extends StatelessWidget {
               Text(
                 message!,
                 textAlign: TextAlign.center,
-                style: AppThemes.appFonts().bodyMedium?.copyWith(
+                style: AppThemes.fonts().bodyMedium?.copyWith(
                       fontWeight: FontWeight.w500,
                       color: AppColors.text,
                     ),
