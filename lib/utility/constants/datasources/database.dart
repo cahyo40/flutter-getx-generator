@@ -6,7 +6,7 @@ class AppDatabase {
   static const String token = 'db-token';
   static const String refreshToken = 'db-refresh-token';
 
-  static Future<void> write(String key, dynamic value) async {
+  static Future<void> create(String key, dynamic value) async {
     await db.write(key, value);
   }
 
@@ -14,11 +14,11 @@ class AppDatabase {
     return db.read(key);
   }
 
-  static Future<void> remove(String key) async {
+  static Future<void> delete(String key) async {
     await db.remove(key);
   }
 
-  static Future<void> erase() async {
+  static Future<void> destroy() async {
     await db.erase();
   }
 }

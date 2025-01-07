@@ -35,7 +35,7 @@ class DioWithRoken extends Interceptor {
       ); // sesuaikan datanya dan responsenya
       if (response.statusCode == 200) {
         final newToken = response.data['access']; // diganti sesuai dengan data
-        AppDatabase.write(AppDatabase.token, newToken);
+        AppDatabase.create(AppDatabase.token, newToken);
 
         final options = err.requestOptions;
         options.headers['Authorization'] = "Bearer $newToken";
@@ -43,7 +43,7 @@ class DioWithRoken extends Interceptor {
         return handler.resolve(responseOptions);
       }
     } catch (e) {
-      AppDatabase.erase();
+      AppDatabase.destroy();
       // Go Init Page
     }
   }
