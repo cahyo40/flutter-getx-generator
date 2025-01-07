@@ -28,7 +28,7 @@ class AppLoading extends StatelessWidget {
                 waveColor: AppColors.primary.withOpacity(.75),
               ),
               SizedBox(
-                height: AppSize.medium,
+                height: AppSize.spaceM,
               ),
               Text(
                 message!,
