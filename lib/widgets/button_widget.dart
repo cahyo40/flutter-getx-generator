@@ -11,12 +11,14 @@ class AppButton extends StatelessWidget {
   final ButtonType? buttonType;
   final ButtonColor buttonColor;
   final Icon? icon;
+  final Color? backgroundColor;
   const AppButton({
     super.key,
     required this.onPressed,
     required this.text,
     this.buttonType,
     this.buttonColor = ButtonColor.PRIMARY,
+    this.backgroundColor,
     this.icon,
   });
 
@@ -73,7 +75,7 @@ class AppButton extends StatelessWidget {
       if (icon == null || icon is SizedBox) {
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: getButtonColor(buttonColor),
+            backgroundColor: backgroundColor ?? getButtonColor(buttonColor),
           ),
           onPressed: onPressed,
           child: Text(
@@ -87,7 +89,7 @@ class AppButton extends StatelessWidget {
       } else {
         return ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
-            backgroundColor: getButtonColor(buttonColor),
+            backgroundColor: backgroundColor ?? getButtonColor(buttonColor),
           ),
           onPressed: onPressed,
           label: Text(
