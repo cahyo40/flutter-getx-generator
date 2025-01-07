@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'controllers/network_controller.dart';
 import 'pages/home/binding/home_binding.dart';
@@ -18,6 +19,7 @@ import 'utility/translations/tr.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   Get.put(NetworkController(), permanent: true);
   await Get.putAsync(() => DioService().init(), permanent: true);
   runApp(const MyApp());
