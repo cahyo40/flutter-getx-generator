@@ -27,7 +27,7 @@ class AppDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppSize.medium),
+      padding: EdgeInsets.only(bottom: AppSize.spaceM),
       child: TextFormField(
         enabled: enabled,
         autofocus: false,
