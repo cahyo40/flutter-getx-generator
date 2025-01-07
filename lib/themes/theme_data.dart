@@ -13,7 +13,7 @@ class AppThemeData {
           centerTitle: true,
           iconTheme: IconThemeData(
             color: AppColors.black,
-            size: FontSize.x2l,
+            size: AppSize.font2XL,
           ),
           elevation: .25,
           titleTextStyle: AppThemes.fonts().titleMedium?.copyWith(
