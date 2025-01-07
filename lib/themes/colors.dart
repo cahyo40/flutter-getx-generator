@@ -1,17 +1,19 @@
+import 'package:clean_arch/utility/helpers/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
 
-  static Color primary = Colors.blueAccent;
-  static Color accent = Colors.amberAccent;
-  static Color background = Colors.white;
-  static Color text = Colors.black87;
+  static Color primary = AppColorHelpers.hslToColor(207, 90, 54);
+  static Color secondary = const Color(0xFFd6ae91);
+  static Color accent = const Color(0xFFaccc77);
+  static Color background = const Color(0xFFf3f8fb);
+  static Color text = const Color(0xFF030608);
 
-  static Color warning = Colors.orange;
-  static Color success = Colors.green;
-  static Color info = Colors.blue;
-  static Color error = Colors.red;
+  static Color warning = AppColorHelpers.hslToColor(43, 90, 54);
+  static Color success = AppColorHelpers.hslToColor(112, 90, 54);
+  static Color info = AppColorHelpers.hslToColor(198, 90, 54);
+  static Color error = AppColorHelpers.hslToColor(344, 90, 54);
 
   static Color grey = Colors.grey;
   static Color black = const Color(0xff121212);
