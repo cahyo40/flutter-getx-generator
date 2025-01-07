@@ -1,6 +1,6 @@
 // ignore_for_file: unused_field
 
-import 'package:clean_arch/app/config.dart';
+import 'config.dart';
 
 enum Environment { dev, prod }
 
