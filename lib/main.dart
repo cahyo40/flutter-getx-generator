@@ -4,10 +4,12 @@ import 'package:get_storage/get_storage.dart';
 
 import 'controllers/network_controller.dart';
 import 'pages/home/binding/home_binding.dart';
+import 'pages/login/binding/login_binding.dart';
 import 'routes/route_app.dart';
 import 'routes/route_name.dart';
 import 'themes/theme.dart';
 import 'themes/theme_data.dart';
+import 'utility/constants/datasources/database.dart';
 import 'utility/constants/enum.dart';
 import 'utility/services/api_services.dart';
 import 'utility/translations/tr.dart';
@@ -22,11 +24,23 @@ void main() async {
   await GetStorage.init();
   Get.put(NetworkController(), permanent: true);
   await Get.putAsync(() => DioService().init(), permanent: true);
-  runApp(const MyApp());
+  final token = AppDatabase.read(AppDatabase.token);
+  final initialRoute = token != null ? PageName.home : PageName.login;
+  final initialBinding = token != null ? HomeBinding() : LoginBinding();
+  runApp(MyApp(
+    initialBinding: initialBinding,
+    initialRoute: initialRoute,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String initialRoute;
+  final Bindings initialBinding;
+  const MyApp({
+    super.key,
+    required this.initialRoute,
+    required this.initialBinding,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +51,8 @@ class MyApp extends StatelessWidget {
       locale: AppThemes.getLocale(AppLocale.ID),
       fallbackLocale: AppThemes.getLocale(AppLocale.EN),
       theme: AppThemeData.theme,
-      initialBinding: HomeBinding(),
-      initialRoute: PageName.home,
+      initialBinding: initialBinding,
+      initialRoute: initialRoute,
       getPages: AppRoutes.routes,
     );
   }
