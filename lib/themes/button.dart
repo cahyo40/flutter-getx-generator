@@ -19,7 +19,7 @@ class AppButtonStyle {
         vertical: 12,
         horizontal: 24,
       ),
-      textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+      textStyle: AppThemes.fonts().bodySmall?.copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.w600,
           ),
@@ -48,7 +48,7 @@ class AppButtonStyle {
         vertical: 12,
         horizontal: 24,
       ),
-      textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+      textStyle: AppThemes.fonts().bodySmall?.copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.w600,
           ),

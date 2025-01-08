@@ -28,12 +28,12 @@ class AppLoading extends StatelessWidget {
                 waveColor: AppColors.primary.withOpacity(.75),
               ),
               SizedBox(
-                height: AppSize.medium,
+                height: AppSize.spaceM,
               ),
               Text(
                 message!,
                 textAlign: TextAlign.center,
-                style: AppThemes.appFonts().bodyMedium?.copyWith(
+                style: AppThemes.fonts().bodyMedium?.copyWith(
                       fontWeight: FontWeight.w500,
                       color: AppColors.text,
                     ),

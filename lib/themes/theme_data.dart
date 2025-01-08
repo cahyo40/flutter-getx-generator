@@ -13,10 +13,10 @@ class AppThemeData {
           centerTitle: true,
           iconTheme: IconThemeData(
             color: AppColors.black,
-            size: FontSize.x2l,
+            size: AppSize.font2XL,
           ),
           elevation: .25,
-          titleTextStyle: AppThemes.appFonts().titleMedium?.copyWith(
+          titleTextStyle: AppThemes.fonts().titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: AppColors.text,
               ),
@@ -24,7 +24,7 @@ class AppThemeData {
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primary,
         ),
-        textTheme: AppThemes.appFonts(),
+        textTheme: AppThemes.fonts(),
         inputDecorationTheme: AppThemes.appInputDecoration(),
         elevatedButtonTheme: AppButtonStyle.filled,
         outlinedButtonTheme: AppButtonStyle.outlined,

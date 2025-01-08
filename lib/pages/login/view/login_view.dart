@@ -1,20 +1,19 @@
 // Author: Muchammad Dwi Cahyo Nugroho
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controller/login_controller.dart';
 
-import '../controller/home_controller.dart';
-
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+class LoginView extends GetView<LoginController> {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Login'),
       ),
       body: const Center(
-        child: Text('Home View'),
+        child: Text('Login View'),
       ),
     );
   }

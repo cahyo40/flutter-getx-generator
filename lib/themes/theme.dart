@@ -10,7 +10,7 @@ class AppThemes {
 
   static const double radius = 14.0;
   static const Duration duration = Duration(milliseconds: 1500);
-  static TextTheme appFonts() {
+  static TextTheme fonts() {
     Fonts fonts = AppConfig.fontsFamily;
     switch (fonts) {
       case Fonts.FIGTREE:
@@ -58,30 +58,16 @@ class AppThemes {
   }
 }
 
-class FontSize {
-  static double xs = 12;
-  static double sm = 14;
-  static double base = 16;
-  static double lg = 18;
-  static double xl = 20;
-  static double x2l = 24;
-  static double x3l = 30;
-  static double x4l = 36;
-}
-
 class AppSize {
-  /// 8
-  static double small = 8;
+  static double spaceS = 8;
+  static double spaceM = 16;
+  static double spaceL = 24;
+  static double spaceXl = 32;
 
-  /// 16
-  static double medium = 16;
-
-  /// 24
-  static double large = 24;
-  //// custom params [double]
-  static double custom(double size) => size;
-}
-
-class AppFonts {
-  static TextTheme app = AppThemes.appFonts();
+  static double fontS = 12;
+  static double fontM = 14;
+  static double fontL = 16;
+  static double fontXL = 18;
+  static double font2XL = 24;
+  static double font3Xl = 32;
 }

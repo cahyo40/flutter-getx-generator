@@ -32,7 +32,7 @@ class AppSnackbar {
           _titleSnackbar(messageType),
           style: TextStyle(
             color: AppColors.white,
-            fontSize: FontSize.lg,
+            fontSize: AppSize.fontXL,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -40,7 +40,7 @@ class AppSnackbar {
           message!,
           style: TextStyle(
             color: AppColors.white,
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -52,7 +52,7 @@ class AppSnackbar {
           _titleSnackbar(messageType),
           style: TextStyle(
             color: AppColors.white,
-            fontSize: FontSize.lg,
+            fontSize: AppSize.fontXL,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -60,7 +60,7 @@ class AppSnackbar {
           message!,
           style: TextStyle(
             color: AppColors.white,
-            fontSize: FontSize.sm,
+            fontSize: AppSize.fontM,
             fontWeight: FontWeight.w400,
           ),
         ),

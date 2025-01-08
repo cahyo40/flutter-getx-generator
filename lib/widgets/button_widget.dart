@@ -11,12 +11,14 @@ class AppButton extends StatelessWidget {
   final ButtonType? buttonType;
   final ButtonColor buttonColor;
   final Icon? icon;
+  final Color? backgroundColor;
   const AppButton({
     super.key,
     required this.onPressed,
     required this.text,
     this.buttonType,
     this.buttonColor = ButtonColor.PRIMARY,
+    this.backgroundColor,
     this.icon,
   });
 
@@ -30,7 +32,7 @@ class AppButton extends StatelessWidget {
               width: 1.5,
               color: getButtonColor(buttonColor),
             ),
-            textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+            textStyle: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -39,7 +41,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -53,7 +55,7 @@ class AppButton extends StatelessWidget {
               color: getButtonColor(buttonColor),
             ),
             iconColor: getButtonColor(buttonColor),
-            textStyle: AppThemes.appFonts().bodySmall?.copyWith(
+            textStyle: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -61,7 +63,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           label: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   color: getButtonColor(buttonColor),
                   fontWeight: FontWeight.w600,
                 ),
@@ -73,12 +75,12 @@ class AppButton extends StatelessWidget {
       if (icon == null || icon is SizedBox) {
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: getButtonColor(buttonColor),
+            backgroundColor: backgroundColor ?? getButtonColor(buttonColor),
           ),
           onPressed: onPressed,
           child: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
                   color: AppColors.white,
                 ),
@@ -87,12 +89,12 @@ class AppButton extends StatelessWidget {
       } else {
         return ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
-            backgroundColor: getButtonColor(buttonColor),
+            backgroundColor: backgroundColor ?? getButtonColor(buttonColor),
           ),
           onPressed: onPressed,
           label: Text(
             text,
-            style: AppThemes.appFonts().bodySmall?.copyWith(
+            style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
                   color: AppColors.white,
                 ),

@@ -1,8 +1,8 @@
-import 'package:clean_arch/controllers/obsecure_text_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
+import '../../controllers/obsecure_text_controller.dart';
 import '../../themes/colors.dart';
 import '../../themes/padding.dart';
 
