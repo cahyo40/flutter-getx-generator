@@ -20,6 +20,13 @@ Git Clone terlebih dahulu
 git clone https://github.com/cahyo40/flutter-getx-generator.git
 ```
 
+Remove .git folder
+
+```
+rm -rf .git*
+
+```
+
 Flutter Clean dan Pub Get
 
 ```
