@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'controllers/network_controller.dart';
+import 'binding/network_binding.dart';
 import 'pages/home/binding/home_binding.dart';
 import 'pages/login/binding/login_binding.dart';
 import 'routes/route_app.dart';
@@ -22,7 +22,7 @@ import 'utility/translations/tr.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  Get.put(NetworkController(), permanent: true);
+  NetworkBinding();
   await Get.putAsync(() => DioService().init(), permanent: true);
   final token = AppDatabase.read(AppDatabase.token);
   final initialRoute = token != null ? PageName.home : PageName.login;
