@@ -7,6 +7,7 @@ class AppColorHelpers {
   }
 
   static Color hslToColor(double hue, double saturation, double lightness) {
-    return HSLColor.fromAHSL(1.0, hue, saturation, lightness).toColor();
+    return HSLColor.fromAHSL(1.0, hue, saturation / 100, lightness / 100)
+        .toColor();
   }
 }
