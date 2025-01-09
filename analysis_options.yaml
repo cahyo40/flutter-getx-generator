@@ -3,3 +3,7 @@ analyzer:
   errors:
     constant_identifier_names: ignore
     non_constant_identifier_names: ignore
+
+linter:
+  rules:
+    - prefer_relative_imports
