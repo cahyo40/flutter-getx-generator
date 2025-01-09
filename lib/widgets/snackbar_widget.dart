@@ -31,7 +31,7 @@ class AppSnackbar {
         titleText: Text(
           _titleSnackbar(messageType),
           style: TextStyle(
-            color: AppColors.white,
+            color: AppColors.text,
             fontSize: AppSize.fontXL,
             fontWeight: FontWeight.w600,
           ),
@@ -39,7 +39,7 @@ class AppSnackbar {
         messageText: Text(
           message!,
           style: TextStyle(
-            color: AppColors.white,
+            color: AppColors.text,
             fontSize: AppSize.fontM,
             fontWeight: FontWeight.w400,
           ),
@@ -51,7 +51,7 @@ class AppSnackbar {
         titleText: Text(
           _titleSnackbar(messageType),
           style: TextStyle(
-            color: AppColors.white,
+            color: AppColors.text,
             fontSize: AppSize.fontXL,
             fontWeight: FontWeight.w600,
           ),
@@ -59,7 +59,7 @@ class AppSnackbar {
         messageText: Text(
           message!,
           style: TextStyle(
-            color: AppColors.white,
+            color: AppColors.text,
             fontSize: AppSize.fontM,
             fontWeight: FontWeight.w400,
           ),

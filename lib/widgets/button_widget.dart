@@ -82,7 +82,7 @@ class AppButton extends StatelessWidget {
             text,
             style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: AppColors.white,
+                  color: AppColors.text,
                 ),
           ),
         );
@@ -96,7 +96,7 @@ class AppButton extends StatelessWidget {
             text,
             style: AppThemes.fonts().bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: AppColors.white,
+                  color: AppColors.text,
                 ),
           ),
           icon: icon,

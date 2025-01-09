@@ -20,7 +20,7 @@ class AppButtonStyle {
         horizontal: 24,
       ),
       textStyle: AppThemes.fonts().bodySmall?.copyWith(
-            color: AppColors.white,
+            color: AppColors.text,
             fontWeight: FontWeight.w600,
           ),
       minimumSize: const Size(
