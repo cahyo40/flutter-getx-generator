@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../constants/message/exception.dart';
+import '../message/exception.dart';
 
 class DioExceptionHandler implements Exception {
   late String errorMessage;

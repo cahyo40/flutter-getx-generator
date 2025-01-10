@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../core/constants/enum.dart';
 import '../themes/button.dart';
 import '../themes/colors.dart';
 import '../themes/theme.dart';
-import '../utility/constants/enum.dart';
 
 class AppButton extends StatelessWidget {
   final Function() onPressed;

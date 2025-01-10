@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../app/config.dart';
-import '../utility/constants/enum.dart';
+import '../core/constants/enum.dart';
 import 'textfield.dart';
 
 class AppThemes {

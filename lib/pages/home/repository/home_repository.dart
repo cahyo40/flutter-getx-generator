@@ -2,7 +2,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 
-import '../../../utility/services/api_services.dart';
+import '../../../services/api_services.dart';
 
 abstract class HomeRepository {}
 

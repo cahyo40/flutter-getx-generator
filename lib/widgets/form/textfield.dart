@@ -5,6 +5,7 @@ import 'package:icons_plus/icons_plus.dart';
 import '../../controllers/obsecure_text_controller.dart';
 import '../../themes/colors.dart';
 import '../../themes/padding.dart';
+import '../../themes/textstyle.dart';
 
 /// Widget TextField kustom yang digunakan di seluruh aplikasi.
 ///
@@ -109,12 +110,13 @@ class AppTextField extends StatelessWidget {
           keyboardType: textInputType ?? TextInputType.text,
           maxLines: maxLines ?? 1,
           controller: controller,
+          style: AppTextStyle.body(),
           readOnly: readOnly ?? false,
           enabled: enabled ?? true,
           validator: (value) {
             return validator!(value);
           },
-          cursorColor: AppColors.black,
+          cursorColor: AppColors.text,
           decoration: icon == null || icon is SizedBox
               ? InputDecoration(
                   labelText: labelText,

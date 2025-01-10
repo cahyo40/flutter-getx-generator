@@ -1,5 +1,6 @@
-import '../constants/message/validation.dart';
 import 'package:get/get.dart';
+
+import '../../message/validation.dart';
 
 class PasswordValidator {
   final int minLength;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utility/constants/enum.dart';
+import '../core/constants/enum.dart';
 import 'colors.dart';
 import 'theme.dart';
 

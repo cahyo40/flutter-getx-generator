@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
-import '../../constants/datasources/api.dart';
-import '../../constants/datasources/database.dart';
+import '../datasources/api.dart';
+import '../datasources/database.dart';
 
 class DioWithRoken extends Interceptor {
   @override

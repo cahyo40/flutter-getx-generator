@@ -10,11 +10,10 @@ class AppThemeData {
   static ThemeData get theme => ThemeData(
         scaffoldBackgroundColor: AppColors.background,
         appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.background,
           centerTitle: true,
-          iconTheme: IconThemeData(
-            color: AppColors.black,
-            size: AppSize.font2XL,
-          ),
+          iconTheme: _iconThemeData,
+          actionsIconTheme: _iconThemeData,
           elevation: .25,
           titleTextStyle: AppThemes.fonts().titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
@@ -30,3 +29,8 @@ class AppThemeData {
         outlinedButtonTheme: AppButtonStyle.outlined,
       );
 }
+
+IconThemeData _iconThemeData = IconThemeData(
+  color: AppColors.text,
+  size: AppSize.font2XL,
+);

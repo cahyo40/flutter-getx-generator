@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-import '../utility/constants/message/exception.dart';
+import '../core/message/exception.dart';
 import '../widgets/snackbar_widget.dart';
 
 class NetworkController extends GetxController {

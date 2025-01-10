@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../utility/constants/enum.dart';
+import '../core/constants/enum.dart';
 import '../widgets/snackbar_widget.dart';
 import 'env.dart';
 
@@ -26,6 +26,6 @@ class AppConfig {
 // Locale Apps
   static AppLocale appLocale = AppLocale.ID;
 // Assets
-  static String imageAssets({required String image}) => "/$image";
-  static String jsonAssets({required String json}) => "/$json";
+  static String imageAssets({required String image}) => "assets/images/$image";
+  static String jsonAssets({required String json}) => "assets/json/$json";
 }

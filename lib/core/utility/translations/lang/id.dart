@@ -1,6 +1,6 @@
-import '../../constants/message/exception.dart';
-import '../../constants/message/utility.dart';
-import '../../constants/message/validation.dart';
+import '../../../message/exception.dart';
+import '../../../message/utility.dart';
+import '../../../message/validation.dart';
 
 final Map<String, String> idID = {
   // Validation

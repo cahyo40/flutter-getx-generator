@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'binding/network_binding.dart';
+import 'core/constants/enum.dart';
+import 'core/utility/translations/tr.dart';
 import 'pages/home/binding/home_binding.dart';
 import 'pages/login/binding/login_binding.dart';
 import 'routes/route_app.dart';
 import 'routes/route_name.dart';
+import 'services/api_services.dart';
+import 'services/datasources/database.dart';
 import 'themes/theme.dart';
 import 'themes/theme_data.dart';
-import 'utility/constants/datasources/database.dart';
-import 'utility/constants/enum.dart';
-import 'utility/services/api_services.dart';
-import 'utility/translations/tr.dart';
 
 // Dart Getx Custom Module Generator
 // Author: Muchammad Dwi Cahyo Nugroho
