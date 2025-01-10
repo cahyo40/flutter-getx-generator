@@ -24,7 +24,7 @@ void main() async {
   await GetStorage.init();
   NetworkBinding();
   await Get.putAsync(() => DioService().init(), permanent: true);
-  final token = AppDatabase.read(AppDatabase.token);
+  final token = AppDatabase().read(AppDatabase.token);
   final initialRoute = token != null ? PageName.home : PageName.login;
   final initialBinding = token != null ? HomeBinding() : LoginBinding();
   runApp(MyApp(
