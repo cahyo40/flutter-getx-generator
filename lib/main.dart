@@ -10,7 +10,7 @@ import 'pages/login/binding/login_binding.dart';
 import 'routes/route_app.dart';
 import 'routes/route_name.dart';
 import 'services/api_services.dart';
-import 'services/datasources/database.dart';
+import 'services/datasources/cache.dart';
 import 'themes/theme.dart';
 import 'themes/theme_data.dart';
 
@@ -24,7 +24,7 @@ void main() async {
   await GetStorage.init();
   NetworkBinding();
   await Get.putAsync(() => DioService().init(), permanent: true);
-  final token = AppDatabase().read(AppDatabase.token);
+  final token = AppCache().read(AppCache.token);
   final initialRoute = token != null ? PageName.home : PageName.login;
   final initialBinding = token != null ? HomeBinding() : LoginBinding();
   runApp(MyApp(
