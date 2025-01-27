@@ -361,13 +361,8 @@ class ${className}Screen extends GetView<${capitalize(moduleName)}Controller> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('${className}'),
-      ),
-      body: const Center(
-        child: Text('${className} Screen'),
-      ),
+    return const Center(
+      child: Text('${className} Screen'),
     );
   }
 }
