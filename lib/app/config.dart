@@ -1,14 +1,22 @@
 import 'dart:io';
 
 import '../core/constants/enum.dart';
+import '../core/utility/functions/package_info.dart';
 import '../widgets/snackbar_widget.dart';
 import 'env.dart';
 
 class AppConfig {
   AppConfig._();
 
-  static String name = "";
-  static String version = "";
+  static String name = "Getx Generator";
+
+  String _version = "";
+  setVersion() async {
+    _version = await AppPackageInfo().version();
+    return _version;
+  }
+
+  String get version => setVersion();
 //Rest API
   static String baseUrl = Env.setEnv(Environment.dev);
   static String baseUrlDev = "";
