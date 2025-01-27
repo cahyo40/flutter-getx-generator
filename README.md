@@ -4,6 +4,7 @@ Test pada
 
 - flutter stable 3.24.3
 - dart 3.5.3
+- get: ^4.6.6
 
 Template proyek Flutter menggunakan GetX untuk manajemen state, routing, dan dependency injection. Proyek ini mencakup generator modul kustom untuk dengan cepat membuat komponen umum.
 
