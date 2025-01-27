@@ -1,5 +1,10 @@
 # Dart GetX Custom Module Generator
 
+Test pada
+
+- flutter stable 3.24.3
+- dart 3.5.3
+
 Template proyek Flutter menggunakan GetX untuk manajemen state, routing, dan dependency injection. Proyek ini mencakup generator modul kustom untuk dengan cepat membuat komponen umum.
 
 ## Fitur
@@ -24,7 +29,6 @@ Remove .git folder
 
 ```
 rm -rf .git*
-
 ```
 
 Flutter Clean dan Pub Get
