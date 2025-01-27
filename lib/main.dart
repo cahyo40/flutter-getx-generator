@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'app/config.dart';
 import 'binding/network_binding.dart';
 import 'core/constants/enum.dart';
+import 'core/utility/functions/package_info.dart';
 import 'core/utility/translations/tr.dart';
 import 'pages/home/binding/home_binding.dart';
 import 'pages/login/binding/login_binding.dart';
@@ -27,6 +29,7 @@ void main() async {
   final token = AppCache().read(AppCache.token);
   final initialRoute = token != null ? PageName.home : PageName.login;
   final initialBinding = token != null ? HomeBinding() : LoginBinding();
+  await AppPackageInfo().version();
   runApp(MyApp(
     initialBinding: initialBinding,
     initialRoute: initialRoute,
@@ -46,7 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dart Getx Custom Module Generator',
+      title: AppConfig.name,
       translations: AppTranslations(),
       locale: AppThemes.getLocale(AppLocale.ID),
       fallbackLocale: AppThemes.getLocale(AppLocale.EN),
