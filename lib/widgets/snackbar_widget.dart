@@ -20,9 +20,7 @@ class AppSnackbar {
     this.duration = AppThemes.duration,
     this.messageType = SnackbarMessageType.INFO,
     required this.message,
-  });
-
-  show() {
+  }) {
     if (type == SnackbarType.FLOATING) {
       Get.snackbar(
         _titleSnackbar(messageType),
@@ -78,8 +76,6 @@ class AppSnackbar {
         return AppColors.warning;
       case SnackbarMessageType.SUCCESS:
         return AppColors.success;
-      default:
-        return AppColors.info;
     }
   }
 
@@ -93,8 +89,6 @@ class AppSnackbar {
         return "Warning";
       case SnackbarMessageType.SUCCESS:
         return "Success";
-      default:
-        return "Info";
     }
   }
 }

@@ -30,17 +30,17 @@ class NetworkController extends GetxController {
         AppSnackbar(
           message: ExceptionMessage.CONNECTION_ERROR.tr,
           messageType: SnackbarMessageType.ERROR,
-        ).show();
+        );
       } else if (e is TimeoutException) {
         AppSnackbar(
           message: ExceptionMessage.CONNECTION_TIMEOUT.tr,
           messageType: SnackbarMessageType.ERROR,
-        ).show();
+        );
       } else {
         AppSnackbar(
           message: ExceptionMessage.NO_INTERNET.tr,
           messageType: SnackbarMessageType.ERROR,
-        ).show();
+        );
       }
       isConnected.value = false;
       return false;

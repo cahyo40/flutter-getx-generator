@@ -29,7 +29,7 @@ class AppButtonStyle {
       ),
       iconColor: AppColors.white,
       disabledIconColor: AppColors.grey,
-      disabledBackgroundColor: AppColors.primary.withOpacity(.25),
+      disabledBackgroundColor: AppColors.primary.withValues(alpha: .25),
       disabledForegroundColor: AppColors.white,
     ),
   );
@@ -76,7 +76,5 @@ Color getButtonColor(ButtonColor color) {
       return AppColors.info;
     case ButtonColor.WARNING:
       return AppColors.warning;
-    default:
-      return AppColors.primary;
   }
 }

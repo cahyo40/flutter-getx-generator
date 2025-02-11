@@ -15,7 +15,7 @@ class AppLoading extends StatelessWidget {
             child: SpinKitWaveSpinner(
               color: AppColors.primary,
               size: 50,
-              waveColor: AppColors.primary.withOpacity(.75),
+              waveColor: AppColors.primary.withValues(alpha: .75),
             ),
           )
         : Column(
@@ -25,7 +25,7 @@ class AppLoading extends StatelessWidget {
               SpinKitWaveSpinner(
                 color: AppColors.primary,
                 size: 50,
-                waveColor: AppColors.primary.withOpacity(.75),
+                waveColor: AppColors.primary.withValues(alpha: .75),
               ),
               SizedBox(
                 height: AppSize.spaceM,
